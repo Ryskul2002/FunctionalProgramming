@@ -1,5 +1,8 @@
 package kz.attractor.java;
 
+import javax.print.DocFlavor;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -49,6 +52,8 @@ final class Cat {
         return breed;
     }
 
+
+
     enum Color {
         TABBY, SILVER, GRAY, PEACH, GINGER, TORTIE
     }
@@ -58,6 +63,32 @@ final class Cat {
     }
 
     /*********/
+
+    public static void sortByBreed(List<Cat> cat) {
+        List<Cat> list = new ArrayList<>(cat);
+        list.sort((s1, s2) -> s1.getBreed().name().compareTo(s2.getBreed().name()));
+        System.out.println("------Sort by Breed-----");
+        Printer.print(list);
+    }
+
+    public static void sortByName(List<Cat> cat) {
+        List<Cat> list = new ArrayList<>(cat);
+        list.sort((s1, s2) -> s1.getName().compareTo(s2.getName()));
+        System.out.println("------Sort by Name-----");
+        Printer.print(list);
+    }
+
+    public static void removeByColor(List<Cat> cat) {
+        List<Cat> list = new ArrayList<>(cat);
+        System.out.println("------Remove by color-----");
+        list.removeIf((s1) -> s1.getColor().name().equals("SILVER"));
+        Printer.print(list);
+    }
+
+//    @Override
+//    public int compareTo(Cat o) {
+//        return this.getBreed().name().compareTo(o.getBreed().name());
+//    }
 
     // Ваш код может находится здесь
     // остальную часть этого файла вы менять не можете
