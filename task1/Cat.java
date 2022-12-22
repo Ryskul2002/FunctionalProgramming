@@ -67,14 +67,21 @@ final class Cat {
     public static void sortByBreed(List<Cat> cat) {
         List<Cat> list = new ArrayList<>(cat);
         list.sort((s1, s2) -> s1.getBreed().name().compareTo(s2.getBreed().name()));
-        System.out.println("------Sort by Breed-----");
+        System.out.println("------Sort by breed-----");
         Printer.print(list);
     }
 
     public static void sortByName(List<Cat> cat) {
         List<Cat> list = new ArrayList<>(cat);
         list.sort((s1, s2) -> s1.getName().compareTo(s2.getName()));
-        System.out.println("------Sort by Name-----");
+        System.out.println("------Sort by name-----");
+        Printer.print(list);
+    }
+
+    public static void sortByAge(List<Cat> cat) {
+        List<Cat> list = new ArrayList<>(cat);
+        list.sort((s1, s2) -> s1.getAge() - s2.getAge());
+        System.out.println("------Sort by age-----");
         Printer.print(list);
     }
 
@@ -82,6 +89,13 @@ final class Cat {
         List<Cat> list = new ArrayList<>(cat);
         System.out.println("------Remove by color-----");
         list.removeIf((s1) -> s1.getColor().name().equals("SILVER"));
+        Printer.print(list);
+    }
+
+    public static void removeByMoreFiveLetter(List<Cat> cat) {
+        List<Cat> list = new ArrayList<>(cat);
+        System.out.println("------Remove by more five letter-----");
+        list.removeIf((s1) -> s1.getName().length() >= 5);
         Printer.print(list);
     }
 
